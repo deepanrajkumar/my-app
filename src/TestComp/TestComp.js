@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TestComp = (props) => {
   const { employeeDetails, sendProduct } = props;
+  const navigate = useNavigate();
 
   return (
     <div style={{ textAlign: "left" }}>
@@ -35,9 +37,17 @@ const TestComp = (props) => {
               </p>
               <strong>Price - {details.price}$</strong>
 
-              <button onClick={() => sendProduct(details.id)}>
-                Add to Cart
-              </button>
+              {sendProduct && (
+                <>
+                  <button onClick={() => sendProduct(details.id)}>
+                    Add to Cart
+                  </button>
+
+                  <button onClick={() => navigate(`/dashboard/${details.id}`)}>
+                    More details - {details.id}
+                  </button>
+                </>
+              )}
             </div>
           </div>
         ))}
