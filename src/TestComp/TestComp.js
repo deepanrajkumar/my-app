@@ -11,6 +11,7 @@ const TestComp = (props) => {
       <div>
         {employeeDetails.map((details) => (
           <div
+            key={details.id}
             style={{
               display: "flex",
               margin: "10px 20px",
