@@ -7,7 +7,6 @@ const TestComp = (props) => {
 
   return (
     <div style={{ textAlign: "left" }}>
-      <h1>{}</h1>
       <div>
         {employeeDetails.map((details) => (
           <div
